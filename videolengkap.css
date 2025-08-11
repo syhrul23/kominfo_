@@ -1,0 +1,789 @@
+   * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Cairo",sans-serif;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: linear-gradient(to right, rgb(63, 125, 154) 15%, rgba(255, 255, 255, 0.7) 15%, rgba(255, 255, 255, 0.7) 100%);
+  padding: 8px 26px;
+  position: fixed; /* Biar nempel atas */
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  backdrop-filter: blur(4px); /* efek kaca */
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.page-wrapper {
+  flex: 1; /* Biar footer tetap di bawah */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-toggle {
+  display: none; /* Sembunyikan checkbox */
+}
+
+.nav-toggle-label span{
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  margin-left: 16px;
+  z-index: 1001;
+}
+
+.nav-toggle-label span{
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: #3f7d9a;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+
+.logo img {
+  height: 45px;
+  width: auto;
+  margin: 0px;
+}
+
+.logo{
+  margin: -13px;
+  padding: 0px;
+}
+
+.nav-menu a {
+  color: #3f7d9a;
+  text-decoration: none;
+  margin-left: 40px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #dd8c43;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tombol utama */
+.dropdown-toggle {
+  color: #3f7d9a;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px;
+  transition: 0.3s;
+}
+
+/* Dropdown menu tersembunyi awalnya */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255,255,255,0.85); /* putih transparan */
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.15);
+  border-radius: 30px;
+  padding: 10px 0;
+  z-index: 1000;
+  min-width: 160px;
+}
+
+/* Tampilkan menu saat hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Style link di dalam dropdown */
+.dropdown-menu a {
+  display: block;
+  padding: 5px 10px;
+  color: #3f7d9a;
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+  align-items: center;
+  margin: 15px;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f2f2f2;   
+  color: #FFBF00;
+}
+
+
+.overlay {
+  align-items: center;
+  text-align: center;
+  background: rgba(255,255,255,0.20);
+  padding: 30px;
+  text-wrap: nowrap;
+  border-radius: 10px;
+  color: white;
+}
+
+.overlay h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.overlay h2 {
+  font-size: 1.8rem;
+  margin-top: 10px;
+}
+
+.floating-icon-bar {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.tooltip-icon {
+  position: relative;
+  background-color: #65abc7;
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;  
+  /* pastikan tidak menghidden child */
+  overflow: visible !important;
+  transition: width 0.3s ease;
+}
+
+.tooltip-icon i {
+  font-size: 20px;
+  z-index: 2;
+}
+
+.tooltip-text {
+  position: absolute;
+  white-space: nowrap;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  background-color: #65abc7;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+}
+
+.tooltip-icon:hover .tooltip-text {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.tooltip-icon:hover{
+  color:white;
+}
+
+modal {
+  display: none; /* Awalnya disembunyikan */
+  position: fixed; /* Tetap di posisi yang sama bahkan saat di-scroll */
+  z-index: 1000; /* Tampil di atas segalanya */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Bisa di-scroll jika kontennya panjang */
+  background-color: rgba(0, 0, 0, 0.6); /* Warna hitam semi-transparan */
+}
+
+/* Kotak konten modal itu sendiri */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto; /* 5% dari atas dan otomatis rata tengah */
+  padding: 25px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 600px; /* Lebar maksimal */
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  animation: slide-down 0.5s;
+}
+
+@keyframes slide-down {
+  from {transform: translateY(-50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+
+
+/* Tombol Close (X) di pojok kanan atas */
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Styling untuk form di dalam modal */
+.modal-content .form-group {
+  margin-bottom: 15px;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.modal-content textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal-content .emoji-rating span {
+  font-size: 2.5rem;
+  margin-right: 15px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.modal-content .emoji-rating span:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.modal-footer {
+  text-align: right;
+  margin-top: 20px;
+}
+/* Anda bisa sesuaikan style tombol ini dengan style website Anda */
+.btn-tutup, .btn-kirim {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-tutup {
+    background-color: #ccc;
+}
+.btn-kirim {
+    background-color: #4CAF50; 
+    color: white;
+}
+
+.hero-judul {
+  position: relative;
+  background-image: url('logo_header_kecil.png');
+  background-size: cover;
+  background-position: center;
+  height: 220px;
+  margin-top: 60px; 
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,40,0.4); 
+  z-index: 1;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: left;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+
+}
+
+.breadcrumb a {
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #ffcc00;
+}
+
+.breadcrumb .active {
+  color: #ffcc00;
+  font-weight: bold;
+}
+
+.hero-inner h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+.sejarah-content {
+  position: relative;
+  z-index: 2;
+  margin-top: -50px; /* Mengangkat konten agar overlap background */
+  padding: 0 20px 60px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 15);
+}
+
+.sejarah-container {
+  background-color: #ffffff;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+    h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #222;
+    max-width: 1200px;
+    text-align: left;
+    margin: 0 auto 20px auto; 
+    margin-top: 60px; /* <-- Ubah nilai ini sesuai kebutuhan */
+}
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 20px auto;
+    }
+
+    .news-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .news-card img {
+      display: block;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+    .news-card .caption {
+      padding: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #222;
+      text-align: center;
+    }
+
+    .btn-lihat {
+      display: inline-block;
+      background-color: #346e8c;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: bold;
+      margin: 40px auto 0;
+      transition: background-color 0.3s ease;
+    }
+    .btn-lihat:hover {
+      background-color: #274f68;
+    }
+
+    hr {
+      margin-top: 60px;
+      height: 2px;
+      background: #222;
+      border: none;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+.footer {
+    background-color: #1e1d2b;
+    color: #ffffff;
+    padding: 60px 20px 20px;
+    font-family: 'Cairo', sans-serif;
+    width:100vw;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+    }
+
+    .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width:1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box; /* Pastikan footer mengisi lebar penuh */
+    }
+
+    .footer-map img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 6px;
+    }
+
+    .footer-kontak,
+    .footer-statistik {
+    flex: 1;
+    min-width: 250px;
+    }
+
+    .footer-kontak h4,
+    .footer-statistik h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #888;
+    display: inline-block;
+    padding-bottom: 5px;
+    }
+
+    .footer-kontak p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #cccccc;
+    }
+
+    .sosmed {
+    margin-top: 15px;
+    }
+
+    .sosmed a img {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+    }
+
+    .sosmed a:hover img {
+    transform: scale(1.2);
+    }
+
+    .logo-x {
+    position: relative;  /* atau absolute jika ingin benar-benar mengambang */
+    z-index: 9999;
+    height: 10px;        
+    }
+
+
+    .footer-statistik ul {
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+    }
+
+    .footer-statistik ul li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: #4CAF50;
+    }
+
+    .asw-menu-btn {
+  display: none !important;
+}
+
+@media (max-width: 1024px) {
+   /* TAMBAHKAN KODE INI DI DALAM MEDIA QUERY */
+  header {
+    background: rgba(63, 125, 154, 0.7) 15%
+  }
+  .nav-toggle-label {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    margin-left: 16px;
+    z-index: 1001;
+  }
+
+  .nav-toggle-label span {
+      display: block;
+      height: 4px;
+      width: 100%;
+      background: #ffffff;
+      margin: 2.5px 0;
+      border-radius: 2px;
+      transition: 0.3s;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 60px;
+    right: 26px;
+    background: rgba(255,255,255,0.97);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    flex-direction: column;
+    align-items: flex-start;
+    width: 200px;
+    padding: 20px 0;
+    gap: 0;
+    display: none;
+    z-index: 1000;
+  }
+  .nav-menu a {
+    margin: 10px 20px;
+    width: calc(100% - 40px);
+  }
+  .nav-toggle:checked + .nav-toggle-label + .nav-menu {
+    display: flex;
+  }
+
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+      opacity: 0;
+  }
+
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+  }
+   .sejarah-container {
+        padding: 20px 15px; /* Padding konten dikurangi */
+        margin-top: -40px; /* Margin top konten disesuaikan */
+    }
+.floating-icon-bar {
+        right: 5px; /* Posisi ikon melayang disesuaikan */
+        gap: 8px; /* Jarak antar ikon dikurangi */
+    }
+    .tooltip-icon {
+        width: 35px; /* Lebar ikon dikurangi */
+        height: 35px; /* Tinggi ikon dikurangi */
+    }
+    .tooltip-icon i {
+        font-size: 16px; /* Ukuran ikon di dalam tombol dikurangi */
+    }
+    .tooltip-text {
+        display: none;
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+        padding: 40px 15px 15px; /* Padding footer dikurangi */
+    }
+    .footer-container {
+        gap: 20px; /* Jarak antar elemen footer dikurangi */
+    }
+    .footer-map iframe {
+        height: 150px; /* Tinggi peta dikurangi */
+        max-width: 280px; /* Lebar peta dikurangi */
+    }
+    .footer-kontak h4, .footer-statistik h4 {
+        font-size: 16px; /* Ukuran font judul footer dikurangi */
+        margin-bottom: 10px; /* Margin bawah judul footer dikurangi */
+        padding-bottom: 3px; /* Padding bawah judul footer dikurangi */
+    }
+    .footer-kontak p {
+        font-size: 12px; /* Ukuran font teks kontak dikurangi */
+        line-height: 1.4; /* Line height teks kontak dikurangi */
+    }
+    .sosmed a img {
+        width: 24px; /* Ukuran ikon sosmed dikurangi */
+        height: 24px; /* Ukuran ikon sosmed dikurangi */
+        margin-right: 8px; /* Margin kanan ikon sosmed dikurangi */
+    }
+    .footer-statistik ul {
+        font-size: 12px; /* Ukuran font statistik dikurangi */
+    }
+    .footer-statistik ul li {
+        margin-bottom: 6px; /* Margin bawah item statistik dikurangi */
+        gap: 10px; /* Jarak antar item statistik dikurangi */
+    }
+}
+ 
+@media (max-width: 915px) {
+    /* --- NAVBAR & HEADER --- */
+    header {
+        /* Latar belakang diubah menjadi satu warna solid saat layar lebih kecil */
+        background: rgb(63, 125, 154);
+    }
+    .nav-toggle-label {
+        display: flex; /* Menampilkan ikon hamburger */
+        flex-direction: column;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        justify-content: center;
+        margin-left: 16px;
+        z-index: 1001;
+    }
+
+    .nav-toggle-label span {
+        display: block;
+        height: 4px;
+        width: 100%;
+        background: #ffffff; /* Warna ikon hamburger diubah menjadi putih agar kontras */
+        margin: 2.5px 0;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 51px; /* Disesuaikan dengan tinggi header */
+        right: 20px; /* Jarak dari kanan layar */
+        background: rgba(255,255,255,0.97);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        flex-direction: column;
+        align-items: flex-start;
+        width: 200px;
+        padding: 15px 0;
+        border-radius: 8px;
+        gap: 0;
+        display: none; /* Menu disembunyikan secara default */
+        z-index: 1000;
+    }
+    
+    .nav-menu a {
+        margin: 10px 20px;
+        width: calc(100% - 40px);
+        color: #3f7d9a; /* Pastikan warna link tetap sama */
+    }
+
+    /* Menampilkan menu ketika ikon hamburger di-klik */
+    .nav-toggle:checked + .nav-toggle-label + .nav-menu {
+        display: flex;
+    }
+
+    /* Animasi ikon hamburger menjadi 'X' */
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    /* --- HERO --- */
+    .hero-inner h1 {
+        font-size: 30px; /* Disesuaikan untuk 915px */
+    }
+
+    /* --- KONTEN --- */
+    .sejarah-container {
+        padding: 20px 15px;
+        margin-top: -40px;
+    }
+
+    /* --- FLOATING ICONS --- */
+    .floating-icon-bar {
+        right: 10px;
+        gap: 8px;
+    }
+    .tooltip-icon {
+        width: 35px;
+        height: 35px;
+    }
+    .tooltip-icon i {
+        font-size: 16px;
+    }
+    /* Tooltip disembunyikan pada layar sentuh untuk pengalaman pengguna yang lebih baik */
+    .tooltip-text {
+        display: none;
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+        padding: 40px 15px 15px;
+    }
+    .footer-container {
+        gap: 20px;
+        /* Membuat footer menjadi satu kolom */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-map iframe {
+        height: 150px;
+        max-width: 280px;
+    }
+    .footer-kontak h4, .footer-statistik h4 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        padding-bottom: 3px;
+    }
+    .footer-kontak p {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+    .sosmed a img {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+    .sosmed {
+        justify-content: center;
+    }
+    .footer-statistik ul {
+        font-size: 12px;
+    }
+    .footer-statistik ul li {
+        margin-bottom: 6px;
+        gap: 10px;
+        justify-content: center; /* Menengahkan statistik */
+    }
+}
