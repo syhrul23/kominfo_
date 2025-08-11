@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diskominfo Kota Bogor</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="page-wrapper">
+      <header>
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo_kominfo-removebg-preview (1).png" alt="Diskominfo Kota Bogor">
+        </div>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav class="nav-menu">
+            <a href="#">Beranda</a>
+
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Profil</a>
+                <div class="dropdown-menu">
+                    <a href="visimisi1.html">Visi Misi</a>
+                    <a href="sejarah.html">Sejarah</a>
+                    <a href="pegawai.html">Data Pegawai</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Publikasi</a>
+                <div class="dropdown-menu">
+                    <a href="galeri.html">Galeri</a>
+                    <a href="galeriberitalengkap.html">Berita</a>
+                </div>
+            </div>
+            <a href="dokumen.html">Dokumen</a>
+            <a href="kontak.html">Kontak</a>
+        </nav>
+    </div>
+</header>
+    <!-- Konten utama halaman -->
+  <!-- Carousel -->
+  <main>
+
+    <!-- sidebar -->
+  <div class="floating-icon-bar">
+  <a href="#" id="tombolBeriPenilaian" class="tooltip-icon">
+    <i class="fas fa-smile"></i>
+    <span class="tooltip-text">Beri Penilaian</span>
+  </a>
+  <a href="#" class="tooltip-icon">
+    <i class="fas fa-bullhorn"></i>
+    <span class="tooltip-text">Aspirasi</span>
+  </a>
+  <a href="#" class="tooltip-icon" id="openAccessibilityMenuButton">
+    <i class="fas fa-child"></i>
+    <span class="tooltip-text">Aksesbilitas</span>
+  </a>
+  <a href="#" class="tooltip-icon">
+    <i class="fas fa-stopwatch"></i>
+    <span class="tooltip-text">Monitoring</span>
+  </a>
+</div>
+  <div id="carouselExampleIndicators" class="carousel slide position-relative" data-bs-ride="carousel">
+        <div class="carousel-caption-layer position-absolute top-50 start-50 translate-middle text-center"> 
+     <section class="hero">
+    <div class="overlay">
+      <h1 id="typing-text">DINAS KOMUNIKASI DAN INFORMATIKA</h1>
+      <h2>KOTA BOGOR</h2>
+    </div>
+  </section>
+   <div class="search-container">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="text" id="searchInput" placeholder="Apa yang sedang anda cari?....">
+</div>
+<div id="searchResults" class="search-results-container"></div>
+        </div>
+
+        <!-- Indikator --> 
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+        </div>
+
+        <!-- Gambar Carousel -->
+        <div class="carousel-inner">
+    <div class="carousel-item active">
+        </div>
+    <div class="carousel-item">
+        </div>
+    <div class="carousel-item">
+        </div>
+</div>
+    </div>
+ <!-- Layanan -->
+  <section class="layanan-baru" id="layanan">
+  <h2>APA LAYANAN YANG KAMI MILIKI?</h2>
+  <p>Sejumlah komponen dan resource yang diterapkan untuk memenuhi kebutuhan instansi pemerintahan Kota Bogor</p>
+
+  <div class="layanan-grid-modern">
+    <div class="layanan-card-modern">
+      <i class="fas fa-file-signature"></i>
+      <p>Pengajuan TTE</p>
+    </div>
+    <div class="layanan-card-modern">
+      <i class="fas fa-comments"></i>
+      <p>Chat Bogor<br>Citizen Support</p>
+    </div>
+    <div class="layanan-card-modern">
+      <i class="fas fa-envelope"></i>
+      <p>Pembuatan<br>Email Dinas</p>
+    </div>
+    <div class="layanan-card-modern">
+      <i class="fas fa-database"></i>
+      <p>PPID</p>
+    </div>
+  </div>
+
+  <div class="btn-wrapper">
+    <a href="layanan.html" class="btn-lihat">LAYANAN SELENGKAPNYA</a>
+  </div>
+</section>
+
+<!-- Layanan -->
+ <!-- Banner Bogor -->
+ <section class="banner-bogor">
+  <a href="https://kotabogor.go.id/" target="_blank" rel="noopener" class="banner-link-wrapper">
+    <div class="banner-container">
+      <img src="logo bogor gede.png" alt="Logo Bogor" class="logo-bogor">
+      <h1>Pemerintah Kota Bogor</h1>
+      <span class="banner-btn">buka <i class="fa-solid fa-arrow-right"></i></span>
+    </div>
+  </a>
+</section>
+<!-- Banner Bogor -->
+ <!-- Berita -->
+    <section class="berita-agenda-section" id="berita">
+  <div class="container-inner">
+    <div class="berita-terbaru">
+      <h2>BERITA TERBARU</h2>
+      <p>Berita atau artikel terbaru dari Dinas Komunikasi dan Informatika Kota Bogor</p>
+      <div class="card-container">
+        <div class="card">
+          <img src="ipb.jpeg" alt="">
+          <div class="card-caption">Pembukaan Passion X Fesma 2025 “A Voyage Through the Echoes of Sweet’s Life”</div>
+        </div>
+        <div class="card">
+          <img src="berita komisi 3.jpeg" alt="">
+          <div class="card-caption">KOMISI III DPRD KOTA BOGOR KUNJUNGI DISKOMINFO KOTA BOGOR</div>
+        </div>
+        <div class="card">
+          <img src="bansos.webp" alt="">
+          <div class="card-caption">Bansos Juli 2025 Dimulai! Buruan Cek Rekening dan Undangan Beras 20 Kg dari RT dan RW</div>
+        </div>
+      </div>
+      <div class="btn-wrapper">
+        <a href="galeriberitalengkap.html" class="btn-lihat">BERITA SELENGKAPNYA</a>
+      </div>
+    </div>
+
+    <aside class="agenda-widget">
+      <h3>Agenda Diskominfo Kota Bogor</h3>
+      <div class="calendar-header">
+        <button class="prev">&lt;</button>
+        <span class="month">Juli 2025</span>
+        <button class="next">&gt;</button>
+      </div>
+   <ul class="weekdays">
+  <li data-day="24">Sen<br>24</li>
+  <li data-day="25" class="active-date">Sel<br>25</li>
+  <li data-day="26">Rab<br>26</li>
+  <li data-day="27">Kam<br>27</li>
+  <li data-day="28">Jum<br>28</li>
+</ul>
+      <div class="agenda-item">
+        <div class="agenda-title">Sosialisasi kepada masyarakat daerah j...</div>
+        <div class="agenda-time">08:00 – 12:00 WIB</div>
+        <div class="agenda-type">Agenda Offline | Pimpinan <span class="btn-tdj">Terjadwal</span></div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-title">Sosialisasi kepada masyarakat daerah j...</div>
+        <div class="agenda-time">08:00 – 12:00 WIB</div>
+        <div class="agenda-type">Agenda Offline | Pimpinan <span class="btn-tdj">Terjadwal</span></div>
+      </div>
+      <a href="#" class="link-more">Lihat Agenda Lainnya</a>
+    </aside>
+  </div>
+</section>
+<!-- Berita -->
+
+<!-- Pejabat -->
+ <section class="pejabat" id="pejabat">
+  <h2>Pejabat Diskominfo</h2>
+  <p>Struktur Organisasi Dinas Komuikasi Dan Informatika Kota Bogor</p>
+
+  <div class="pejabat-container">
+    <div class="pejabat-card">
+      <img src="img/Data_Pegawai/4188.jpg" alt="Pejabat 1">
+      <h6 style="font-size: 13px;margin-top: 30px;">Rudiyana S.STP.M.Sc</h6>
+      <h6 style="font-size: 12px;margin-top: 20px;">Kepala Dinas</h6>
+    </div>
+    <div class="pejabat-card">
+      <img src="img/Data_Pegawai/3765.jpg" alt="Pejabat 1">
+      <h6 style="font-size: 13px;margin-top: 30px;">Oki Tri Fasiasta Nurmala Alam, S.STP.</h6>
+      <h6 style="font-size: 12px;margin-top: 13px;">Sekretaris</h6>
+    </div>
+    <div class="pejabat-card">
+      <img src="img/Data_Pegawai/junenti.jpg" alt="Pejabat 1">
+      <h6 style="font-size: 13px;margin-top: 30px;">Junenti Kolbert Nadeak, ST. ME</h6>
+      <h6 style="font-size: 12px;margin-top: 13px;">Kepala Bidang APTIKA</h6>
+    </div>
+    <div class="pejabat-card">
+      <img src="img/Data_Pegawai/foto_bu_dian.jpg" alt="Pejabat 1">
+      <h6 style="font-size: 13px;margin-top: 29px;">Dian Intannia Lesmana S.Sos. ME</h6>
+      <h6 style="font-size: 12px;margin-top: 13px;">Kepala Bidang Informasi dan Komunikasi Publik</h6>
+    </div>
+  </div>
+
+  <div class="btn-wrapper">
+    <a href="pegawai.html" class="btn-lihat">STRUKTUR SELENGKAPNYA</a>
+  </div>
+</section>
+ <!-- Pejabat-->
+
+ <!-- banner-->
+  <section class="link-terkait">
+  <h2>BANNER LINK TERKAIT</h2>
+  <p>Situs yang terkait dengan Dinas Komunikasi dan Informatika, Kota Bogor</p>
+
+  <div class="logo-container">
+    <a href="https://bpbd.kotabogor.go.id/" target="_blank" rel="noopener">
+      <img src="bpbd.png" alt="BPBD Kota Bogor">
+    </a>
+    <a href="https://bsw.kotabogor.go.id/" target="_blank" rel="noopener">
+      <img src="unnamed-removebg-preview.png" alt="Bogor Single Window">
+    </a>
+    <a href="https://kotabogor.go.id/" target="_blank" rel="noopener">
+      <img src="kota bogor.png" alt="Kota Bogor">
+    </a>
+    <a href="https://perkawis.kotabogor.go.id/" target="_blank" rel="noopener">
+      <img src="bogor perkawis.png" alt="Kominfo Logo">
+    </a>
+  </div>
+<!--banner-->
+</div>
+</div>
+</main>
+<!-- Footer -->
+ <footer class="footer">
+  <div class="footer-container">
+   <div class="footer-map">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.4161454299747!2d106.79109007413658!3d-6.595089664468269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5b7d2e12d0d%3A0x9b59e38fc692d9fe!2sKantor%20Kominfo%20Kota%20Bogor!5e0!3m2!1sen!2sid!4v1752851198269!5m2!1sen!2sid"width="300"
+    height="200"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+    <div class="footer-kontak">
+      <h4>Kontak Kami</h4>
+       <p> Jl. Ir. H. Juanda No.10, RT.01/RW.01, Pabaton,<br>
+    Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16121<br><br>
+    Telp: <a href="tel:+622518321075">+62251-8321075 Ext. 287</a><br>
+    e-mail Admin Web: <a href="mailto:kominfo@kotabogor.go.id" target="_blank">kominfo@kotabogor.go.id</a>
+  </p>
+      <div class="sosmed">
+  <a href="https://www.facebook.com/kominfokotabogor" target="_blank" rel="noopener"><img src="fb.png" alt="Facebook"></a>
+  <a href="https://www.instagram.com/kominfobogor?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener"><img src="instagram.png" alt="Instagram"></a>
+  <a href="https://youtube.com/@kominfokotabogor2892?si=DYzwmdH5Fa8aDNeZ" target="_blank" rel="noopener"><img src="youtube.png" alt="YouTube"></a>
+  <a href="https://x.com/kominfobogor" target="_blank" rel="noopener"><img src="twitter.png" class="logo-x" alt="Twitter/X"></a>
+</div>
+    </div>
+    <div class="footer-statistik">
+      <h4>Statistik Pengunjung</h4>
+      <ul>
+        <li>➡️ Hari ini <span>123</span></li>
+        <li>➡️ Kemarin <span>12345</span></li>
+        <li>➡️ Bulan ini <span>1234567</span></li>
+        <li>➡️ Tahun ini <span>12345678</span></li>
+        <li>➡️ Semua Waktu <span>123456789</span></li>
+      </ul>
+    </div>
+    </div>
+</footer>
+<!-- Footer -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://website-widgets.pages.dev/dist/sienna.min.js" data-asw-lang="id" data-asw-position="hidden"></script>
+  <script src="scripts.js"></script>
+  <script src="pencarian.js"></script>
+  <div id="modalPenilaian" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <h2>Berikan Masukan untuk Perbaikan Portal</h2>
+    
+    <form>
+      <div class="form-group">
+        <label>Seberapa Puas Anda dengan Website Diskominfo Kota Bogor</label>
+        <div class="emoji-rating">
+          <span>😞</span> <span>😐</span> <span>😊</span> <span>😍</span>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Apakah Anda dapat menemukan berita/informasi layanan publik/agenda yang Anda cari?</label>
+        <input type="radio" name="info" value="tidak"> Tidak
+        <input type="radio" name="info" value="ya"> Ya
+      </div>
+      
+      <div class="form-group">
+        <label for="kritik">Kritik dan saran Anda untuk Portal Jabarprov?</label>
+        <textarea id="kritik" rows="4" placeholder="Masukkan jawaban Anda di sini"></textarea>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" id="tombolTutupModal" class="btn-tutup">Tutup</button>
+        <button type="submit" class="btn-kirim">Kirim Masukan</button>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>
