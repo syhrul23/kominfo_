@@ -789,3 +789,158 @@ modal {
         justify-content: center; /* Menengahkan statistik */
     }
 }
+
+@media (min-width: 576px) and (max-width: 914px) {
+    .news-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px; /* Adjust the gap as needed */
+    }
+}
+
+/* Existing Media Query for smaller devices */
+@media (max-width: 915px) {
+    /* ... (your existing CSS for 915px and below) */
+    .nav-toggle-label {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        justify-content: center;
+        margin-left: 16px;
+        z-index: 1001;
+    }
+
+    .nav-toggle-label span {
+        display: block;
+        height: 4px;
+        width: 100%;
+        background: #ffffff;
+        margin: 2.5px 0;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+    
+    .nav-menu {
+        position: absolute;
+        top: 51px;
+        right: 20px;
+        background: rgba(255,255,255,0.97);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        flex-direction: column;
+        align-items: flex-start;
+        width: 200px;
+        padding: 15px 0;
+        border-radius: 8px;
+        gap: 0;
+        display: none;
+        z-index: 1000;
+    }
+    
+    .nav-menu a {
+        margin: 10px 20px;
+        width: calc(100% - 40px);
+        color: #3f7d9a;
+    }
+
+    .nav-toggle:checked + .nav-toggle-label + .nav-menu {
+        display: flex;
+    }
+
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    .hero-inner h1 {
+        font-size: 30px;
+    }
+
+    .sejarah-container {
+        padding: 20px 15px;
+        margin-top: -40px;
+    }
+
+    .floating-icon-bar {
+        right: 10px;
+        gap: 8px;
+    }
+
+    .tooltip-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .tooltip-icon i {
+        font-size: 16px;
+    }
+
+    .tooltip-text {
+        display: none;
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+        padding: 40px 15px 15px;
+    }
+
+    .footer-container {
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-map iframe {
+        height: 150px;
+        max-width: 280px;
+    }
+
+    .footer-kontak h4,
+    .footer-statistik h4 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        padding-bottom: 3px;
+    }
+
+    .footer-kontak p {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .sosmed a img {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+
+    .sosmed {
+        justify-content: center;
+    }
+
+    .footer-statistik ul {
+        font-size: 12px;
+    }
+
+    .footer-statistik ul li {
+        margin-bottom: 6px;
+        gap: 10px;
+        justify-content: center;
+    }
+}
+
+/* Original rule for news-grid, which will be overridden by the new media query */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
