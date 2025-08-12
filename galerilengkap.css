@@ -74,7 +74,6 @@ header {
   margin: -13px;
   padding: 0px;
 }
-
 .nav-menu a {
   color: #3f7d9a;
   text-decoration: none;
@@ -389,15 +388,15 @@ modal {
     color: #222;
     max-width: 1200px;
     text-align: left;
-    margin: 0 auto 20px auto; 
+    margin: 0 auto 20px auto; /* Hapus margin atas dari sini */
     margin-top: 60px; /* <-- Ubah nilai ini sesuai kebutuhan */
 }
 
     .news-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 20px auto;
     }
 
@@ -414,79 +413,13 @@ modal {
       width: 100%;
       height: 180px;
       object-fit: cover;
-      cursor: pointer;
-      transition: opacity 0.3s ease;
     }
 
-    .news-card img:hover {
-        opacity: 0.7;
-    }
-
-    .modal-image-popup {
-      display: none; /* Hidden by default */
-      position: fixed; /* Stay in place */
-      z-index: 1001; /* Sit on top of everything */
-      padding-top: 60px; /* Location of the box */
-      left: 0;
-      top: 0;
-      width: 100%; /* Full width */
-      height: 100%; /* Full height */
-      overflow: auto; /* Enable scroll if needed */
-      background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-    }
-
-    /* Modal Content (Image) */
-    .modal-image-content {
-      margin: auto;
-      display: block;
-      width: 80%;
-      max-width: 800px;
-      border-radius: 8px;
-      animation-name: zoom;
-      animation-duration: 0.5s;
-    }
-
-    /* Caption of Modal Image */
-    #caption-popup {
-      margin: auto;
-      display: block;
-      width: 80%;
-      max-width: 800px;
-      text-align: center;
-      color: #ccc;
-      padding: 15px 0;
-    }
-
-    /* Add Animation */
-    @keyframes zoom {
-      from {transform: scale(0.1)}
-      to {transform: scale(1)}
-    }
-
-    /* The Close Button */
-    .close-popup {
-      position: absolute;
-      top: 15px;
-      right: 35px;
-      color: #f1f1f1;
-      font-size: 40px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .close-popup:hover,
-    .close-popup:focus {
-      color: #bbb;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    
     .news-card .caption {
       padding: 15px;
       font-size: 16px;
       font-weight: bold;
       color: #222;
-      text-align: center;
     }
 
     .news-card:hover {
@@ -855,4 +788,18 @@ modal {
         gap: 10px;
         justify-content: center; /* Menengahkan statistik */
     }
-}
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px; /* Adjust the gap as needed */
+        margin: 0px 10px auto;
+    }
+    .news-card .caption{
+      font-size: 10px;
+    }
+    .h2 {
+      font-size: 10px;
+    }
+    .h1{
+      font-size: 15px;
+    }
+  }
