@@ -516,3 +516,170 @@ modal {
   display: none !important;
 }
 
+@media (max-width: 915px) {
+    /* --- NAVBAR & HEADER --- */
+    header {
+        /* Latar belakang diubah menjadi satu warna solid saat layar lebih kecil */
+        background: rgb(63, 125, 154);
+    }
+    .nav-toggle-label {
+        display: flex; /* Menampilkan ikon hamburger */
+        flex-direction: column;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        justify-content: center;
+        margin-left: 16px;
+        z-index: 1001;
+    }
+
+    .nav-toggle-label span {
+        display: block;
+        height: 4px;
+        width: 100%;
+        background: #ffffff; /* Warna ikon hamburger diubah menjadi putih agar kontras */
+        margin: 2.5px 0;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 51px; /* Disesuaikan dengan tinggi header */
+        right: 20px; /* Jarak dari kanan layar */
+        background: rgba(255,255,255,0.97);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        flex-direction: column;
+        align-items: flex-start;
+        width: 200px;
+        padding: 15px 0;
+        border-radius: 8px;
+        gap: 0;
+        display: none; /* Menu disembunyikan secara default */
+        z-index: 1000;
+    }
+    
+    .nav-menu a {
+        margin: 10px 20px;
+        width: calc(100% - 40px);
+        color: #3f7d9a; /* Pastikan warna link tetap sama */
+    }
+
+    /* Menampilkan menu ketika ikon hamburger di-klik */
+    .nav-toggle:checked + .nav-toggle-label + .nav-menu {
+        display: flex;
+    }
+
+    /* Animasi ikon hamburger menjadi 'X' */
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    /* --- HERO --- */
+    .hero-inner h1 {
+        font-size: 30px; /* Disesuaikan untuk 915px */
+    }
+
+    /* --- KONTEN --- */
+    .sejarah-container {
+        padding: 20px 15px;
+        margin-top: -40px;
+    }
+
+    /* --- FLOATING ICONS --- */
+    .floating-icon-bar {
+        right: 10px;
+        gap: 8px;
+    }
+    .tooltip-icon {
+        width: 35px;
+        height: 35px;
+    }
+    .tooltip-icon i {
+        font-size: 16px;
+    }
+    /* Tooltip disembunyikan pada layar sentuh untuk pengalaman pengguna yang lebih baik */
+    .tooltip-text {
+        display: none;
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+        padding: 40px 15px 15px;
+    }
+    .footer-container {
+        gap: 20px;
+        /* Membuat footer menjadi satu kolom */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-map iframe {
+        height: 150px;
+        max-width: 280px;
+    }
+    .footer-kontak h4, .footer-statistik h4 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        padding-bottom: 3px;
+    }
+    .footer-kontak p {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+    .sosmed a img {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+    .sosmed {
+        justify-content: center;
+    }
+    .footer-statistik ul {
+        font-size: 12px;
+    }
+    .footer-statistik ul li {
+        margin-bottom: 6px;
+        gap: 10px;
+        justify-content: center; /* Menengahkan statistik */
+    }
+    .layanan-card-modern {
+        flex: 0 0 calc(50% - 15px); /* Changed to 50% for two cards per row */
+        max-width: calc(50% - 15px);
+        min-height: 200px; /* Adjusted min-height for better fit */
+        padding: 20px 10px; /* Adjusted padding */
+    }
+
+    .layanan-card-modern i {
+        font-size: 50px; /* Reduced icon size */
+        margin-bottom: 10px; /* Reduced margin */
+    }
+
+    .layanan-grid-modern {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: auto;
+    margin: 0px 10px 40px;  
+    }
+
+    .h2 {
+      font-size: 10px;
+    }
+    .h1{
+      font-size: 15px;
+    }
+  }
+
