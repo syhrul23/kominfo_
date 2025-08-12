@@ -166,6 +166,7 @@ header {
   transform: translateY(-50%);
   z-index: 9999;
   display: flex;
+  flex-direction: column;
   gap: 15px;
 }
 
@@ -1109,7 +1110,6 @@ object-position: center center; /* Pastikan tengah yang muncul */
     left: 15%; 
   }
   .layanan-grid-modern {
-    flex-direction: column; 
     gap: 20px;
   }
 
